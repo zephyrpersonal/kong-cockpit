@@ -7,14 +7,18 @@ import 'normalize.css/normalize.css'
 import '@blueprintjs/core/dist/blueprint.css'
 
 import App from './components/App'
-import DashBoard from './components/DashBoard'
+import DashBoard from './views/DashBoard'
+import ApisView from './views/Apis'
+import PluginsView from './views/Plugins'
 
 const renderApp = () => {
   ReactDOM.render(
     <AppContainer>
       <BrowserRouter>
         <App>
-          <Route path='/' component={DashBoard} />
+          <Route exact path='/' component={DashBoard} />
+          <Route path='/apis' component={ApisView} />
+          <Route path='/plugins' component={PluginsView} />
         </App>
       </BrowserRouter>
     </AppContainer>,

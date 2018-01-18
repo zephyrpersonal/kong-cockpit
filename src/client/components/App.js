@@ -7,7 +7,7 @@ const AppWrapper = styled.div`
   background: #63a98b;
   width: 100%;
   height: 100%;
-  padding: 20px;
+  padding: 40px;
   box-sizing: border-box;
   font-family: Montserrat, sans-serif;
   text-rendering: optimizeLegibility;
@@ -18,7 +18,7 @@ const AppBoard = styled.section`
   background-color: #141a2e;
   border-radius: 4px;
   min-height: 800px;
-  box-shadow: 0 0 5 0 rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.3);
   padding: 20px;
 `
 
@@ -27,7 +27,6 @@ const AppContainer = styled.section`
   display: flex;
   flex-direction: row wrap;
 `
-
 class App extends Component {
   constructor () {
     super()

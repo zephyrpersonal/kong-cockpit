@@ -7,6 +7,7 @@ const Jarvis = require('webpack-jarvis')
 baseConfig.entry.app.unshift('react-hot-loader/patch')
 module.exports = merge(baseConfig, {
   devServer: {
+    historyApiFallback: true,
     contentBase: './dist',
     hot: true,
     proxy: {

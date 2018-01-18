@@ -6,15 +6,18 @@ import { Icon } from '@blueprintjs/core'
 const navs = [
   {
     name: 'DASHBOARD',
-    path: '/'
+    path: '/',
+    icon: 'grid-view'
   },
   {
     name: 'APIS',
-    path: '/apis'
+    path: '/apis',
+    icon: 'link'
   },
   {
     name: 'PLUGINS',
-    path: '/plugins'
+    path: '/plugins',
+    icon: 'code-block'
   }
 ]
 
@@ -30,25 +33,24 @@ const NavItem = styled.div`
   text-align: center;
   line-height: 50px;
   border: 1px solid rgba(0, 0, 0, 0.3);
-  box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.3);
-  margin-bottom: 5px;
+  box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.1);
   color: #ddd;
 `
 
 const NavItemActived = {
-  background: 'rgba(0,0,0,0.6)',
-  boxShadow: '2px 2px 2px 0 rgba(0, 0, 0, 0.1)'
+  background: 'rgba(100,100,100,0.1)',
+  boxShadow: 'inset 1px 1px 10px 0 rgba(0, 0, 0, 0.1)'
 }
 
 class AppSideNav extends Component {
   render () {
     return (
       <NavBar>
-        {navs.map(({ name, path }) => {
+        {navs.map(({ name, path, icon }) => {
           return (
-            <NavLink key={name} to={path} activeStyle={NavItemActived}>
+            <NavLink key={name} to={path} activeStyle={NavItemActived} style={{ marginBottom: 10 }}>
               <NavItem>
-                <Icon iconName='grid' />
+                <Icon iconName={icon} />
               </NavItem>
             </NavLink>
           )
