@@ -23,7 +23,7 @@ module.exports = {
         use: ['style-loader', 'css-loader']
       },
       {
-        test: /\.(ttf|eot|woff)$/,
+        test: /\.(ttf|eot|woff|woff2)$/,
         use: 'url-loader'
       }
     ]
@@ -35,6 +35,9 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       minChunks: Infinity
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'manifest'
     })
   ]
 }

@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { Icon, Popover, Position } from '@blueprintjs/core'
+import AccountCircle from 'material-ui-icons/AccountCircle'
 
 const AppHeaderStyle = styled.nav`
   font-size: 14px;
   padding-bottom: 20px;
-  border-bottom: 1px solid #183e46;
+  /* border-bottom: 1px solid #183e46; */
   display: flex;
   flex-flow: row wrap;
 `
@@ -24,15 +24,7 @@ class AppHeader extends Component {
       <AppHeaderStyle>
         <Title>KONG</Title>
         <UserPanel>
-          <Popover
-            position={Position.BOTTOM}
-            target={
-              <Icon iconName='user' iconSize={14}>
-                admin
-              </Icon>
-            }
-            content={<div>123</div>}
-          />
+          <AccountCircle />
         </UserPanel>
       </AppHeaderStyle>
     )

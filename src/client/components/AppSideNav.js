@@ -24,7 +24,7 @@ const navs = [
 const NavBar = styled.nav`
   display: flex;
   flex-direction: column;
-  margin-right: 10px;
+  margin-right: 20px;
 `
 
 const NavItem = styled.div`
@@ -32,13 +32,14 @@ const NavItem = styled.div`
   height: 50px;
   text-align: center;
   line-height: 50px;
-  border: 1px solid rgba(0, 0, 0, 0.3);
+  border: 1px solid #183e46;
   box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.1);
   color: #ddd;
+  transition: 0.5s ease;
 `
 
 const NavItemActived = {
-  background: 'rgba(100,100,100,0.1)',
+  background: '#183e46',
   boxShadow: 'inset 1px 1px 10px 0 rgba(0, 0, 0, 0.1)'
 }
 
@@ -48,7 +49,12 @@ class AppSideNav extends Component {
       <NavBar>
         {navs.map(({ name, path, icon }) => {
           return (
-            <NavLink key={name} to={path} activeStyle={NavItemActived} style={{ marginBottom: 10 }}>
+            <NavLink
+              key={name}
+              to={path}
+              activeStyle={NavItemActived}
+              style={{ marginBottom: 10 }}
+            >
               <NavItem>
                 <Icon iconName={icon} />
               </NavItem>

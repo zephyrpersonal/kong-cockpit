@@ -5,6 +5,7 @@ import { BrowserRouter, Route } from 'react-router-dom'
 
 import 'normalize.css/normalize.css'
 import '@blueprintjs/core/dist/blueprint.css'
+import './assets/main.css'
 
 import App from './components/App'
 import DashBoard from './views/DashBoard'
