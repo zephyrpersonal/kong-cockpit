@@ -1,23 +1,27 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
-import { Icon } from '@blueprintjs/core'
+import {
+  CompareArrows,
+  Dashboard,
+  SettingsInputComponent
+} from 'material-ui-icons'
 
 const navs = [
   {
     name: 'DASHBOARD',
     path: '/',
-    icon: 'grid-view'
+    icon: <Dashboard />
   },
   {
     name: 'APIS',
     path: '/apis',
-    icon: 'link'
+    icon: <CompareArrows />
   },
   {
     name: 'PLUGINS',
     path: '/plugins',
-    icon: 'code-block'
+    icon: <SettingsInputComponent />
   }
 ]
 
@@ -32,6 +36,10 @@ const NavItem = styled.div`
   height: 50px;
   text-align: center;
   line-height: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   border: 1px solid #183e46;
   box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.1);
   color: #ddd;
@@ -55,9 +63,7 @@ class AppSideNav extends Component {
               activeStyle={NavItemActived}
               style={{ marginBottom: 10 }}
             >
-              <NavItem>
-                <Icon iconName={icon} />
-              </NavItem>
+              <NavItem>{icon}</NavItem>
             </NavLink>
           )
         })}

@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import 'normalize.css/normalize.css'
 import '@blueprintjs/core/dist/blueprint.css'
@@ -17,9 +17,11 @@ const renderApp = () => {
     <AppContainer>
       <BrowserRouter>
         <App>
-          <Route exact path='/' component={DashBoard} />
-          <Route path='/apis' component={ApisView} />
-          <Route path='/plugins' component={PluginsView} />
+          <Switch>
+            <Route exact path='/' component={DashBoard} />
+            <Route path='/apis' component={ApisView} />
+            <Route path='/plugins' component={PluginsView} />
+          </Switch>
         </App>
       </BrowserRouter>
     </AppContainer>,

@@ -21,9 +21,9 @@ module.exports = merge(baseConfig, {
   },
   plugins: [
     new DashboardPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new Jarvis({
-      port: 1443 // optional: set a port
-    })
+    new webpack.HotModuleReplacementPlugin()
+    // new Jarvis({
+    //   port: 1443 // optional: set a port
+    // })
   ]
 })

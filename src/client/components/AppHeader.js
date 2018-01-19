@@ -6,6 +6,7 @@ const AppHeaderStyle = styled.nav`
   font-size: 14px;
   padding-bottom: 20px;
   /* border-bottom: 1px solid #183e46; */
+  flex: 0;
   display: flex;
   flex-flow: row wrap;
 `
