@@ -5,7 +5,6 @@ const PanelWrapper = styled.section`
   display: flex;
   flex: 1;
   flex-direction: column;
-  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
 `
 
 const PanelHeader = styled.section`
@@ -13,6 +12,9 @@ const PanelHeader = styled.section`
 `
 const PanelBody = styled.section`
   font-size: 14px;
+  padding: 24;
+  background: '#fff';
+  min-height: 360;
 `
 const Panel = props => (
   <PanelWrapper>

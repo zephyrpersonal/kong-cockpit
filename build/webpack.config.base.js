@@ -4,7 +4,7 @@ const webpack = require('webpack')
 
 module.exports = {
   entry: {
-    vendor: ['react', 'react-dom', 'react-router-dom', '@blueprintjs/core'],
+    vendor: ['react', 'react-dom', 'react-router-dom', 'antd'],
     app: ['./src/client/main.js']
   },
   output: {

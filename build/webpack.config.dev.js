@@ -2,7 +2,6 @@ const webpack = require('webpack')
 const merge = require('webpack-merge')
 const DashboardPlugin = require('webpack-dashboard/plugin')
 const baseConfig = require('./webpack.config.base')
-const Jarvis = require('webpack-jarvis')
 
 baseConfig.entry.app.unshift('react-hot-loader/patch')
 module.exports = merge(baseConfig, {
@@ -10,6 +9,8 @@ module.exports = merge(baseConfig, {
     historyApiFallback: true,
     contentBase: './dist',
     hot: true,
+    host: '0.0.0.0',
+    port: 9000,
     proxy: {
       '/kong': {
         target: 'http://qccost-gateway-admin.dev.quancheng-ec.com',

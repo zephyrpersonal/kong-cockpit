@@ -1,55 +1,11 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
-import AppHeader from './AppHeader'
-import AppSideNav from './AppSideNav'
+import { Layout, Menu, Icon } from 'antd'
+import { NavLink } from 'react-router-dom'
 
-import backgroundImage from '../assets/breather-187923.jpg'
+import Menus from '../const/menu'
+import { UserAction } from './UserAction'
+const { Header, Content, Sider, Footer } = Layout
 
-const AppWrapper = styled.div`
-  background-color: #63a98b;
-  background-image: url(${backgroundImage});
-  background-repeat: no-repeat;
-  background-blend-mode: multiply;
-  background-size: cover;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  overflow: hidden;
-  box-sizing: border-box;
-  font-family: Montserrat, sans-serif;
-  text-rendering: optimizeLegibility;
-  color: hsla(0, 0%, 100%, 0.7);
-`
-
-const AppBoard = styled.section`
-  /* background-color: #141a2e; */
-  background: linear-gradient(
-    to bottom,
-    rgba(24, 62, 70, 0.95) 0%,
-    rgba(20, 26, 46, 0.95) 4%,
-    rgba(20, 26, 46, 0.95) 100%
-  );
-  border-radius: 4px;
-  box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  margin: 40px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-`
-
-const AppContainer = styled.section`
-  padding: 20px 0;
-  display: flex;
-  box-sizing: border-box;
-  flex-direction: row;
-  flex: 1;
-`
-
-const AppContent = styled.section`
-  padding: 20px;
-  overflow: auto;
-`
 class App extends Component {
   constructor () {
     super()
@@ -58,17 +14,57 @@ class App extends Component {
 
   render () {
     return (
-      <AppWrapper>
-        <AppBoard>
-          <AppHeader />
-          <AppContainer>
-            <AppSideNav />
-            <AppContent className='custom-scrollbar'>
-              {this.props.children}
-            </AppContent>
-          </AppContainer>
-        </AppBoard>
-      </AppWrapper>
+      <Layout>
+        <Layout style={{ marginLeft: 200 }}>
+          <Content style={{ margin: '84px 16px 0', overflow: 'initial' }}>
+            {this.props.children}
+          </Content>
+          <Header
+            style={{
+              background: '#fff',
+              padding: 0,
+              textAlign: 'right',
+              position: 'fixed',
+              right: 0,
+              width: '100%'
+            }}
+          >
+            <UserAction style={{ marginRight: 10 }} />
+          </Header>
+
+          <Footer
+            style={{
+              position: 'fixed',
+              bottom: 0,
+              right: 0,
+              width: '100%',
+              background: '#fff'
+            }}
+          >
+            123
+          </Footer>
+        </Layout>
+        <Sider
+          style={{
+            overflow: 'auto',
+            height: '100vh',
+            position: 'fixed',
+            left: 0
+          }}
+        >
+          <div className='logo' />
+          <Menu theme='dark' mode='inline'>
+            {Menus.map(menu => (
+              <Menu.Item key={menu.name}>
+                <NavLink to={menu.path}>
+                  <Icon type={menu.icon} />
+                  <span className='nav-text'>{menu.name}</span>
+                </NavLink>
+              </Menu.Item>
+            ))}
+          </Menu>
+        </Sider>
+      </Layout>
     )
   }
 }
