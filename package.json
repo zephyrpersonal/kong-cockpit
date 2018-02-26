@@ -16,6 +16,7 @@
   "dependencies": {
     "antd": "^3.2.2",
     "axios": "^0.17.1",
+    "immutability-helper": "^2.6.5",
     "material-ui": "^1.0.0-beta.25",
     "material-ui-icons": "^1.0.0-beta.17",
     "modern-normalize": "^0.4.0",

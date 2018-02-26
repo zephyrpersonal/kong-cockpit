@@ -9,7 +9,8 @@ module.exports = {
   },
   output: {
     path: resolve(__dirname, './dist/client'),
-    filename: '[name].js'
+    filename: '[name].js',
+    publicPath: '/'
   },
   module: {
     rules: [

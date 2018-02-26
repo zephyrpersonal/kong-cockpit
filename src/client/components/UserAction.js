@@ -1,9 +1,16 @@
 import React from 'react'
-import { Icon } from 'antd'
+import { Button, Dropdown, Menu } from 'antd'
+
+const menu = (
+  <Menu>
+    <Menu.Item>123</Menu.Item>
+  </Menu>
+)
 
 export const UserAction = props => (
   <div {...props}>
-    <Icon type='user' />
-    Hello, Admin
+    <Dropdown overlay={menu} placement='bottomRight'>
+      <Button icon='user'>Hello, Admin</Button>
+    </Dropdown>
   </div>
 )
