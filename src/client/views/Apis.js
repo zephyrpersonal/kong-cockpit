@@ -1,13 +1,17 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { Table, Divider, Button, Popconfirm, message } from 'antd'
+import { Table, Divider, Button, Popconfirm, message, Card } from 'antd'
 import update from 'immutability-helper'
 
 import client from '../apis/client'
 
 const rowSelection = {
   onChange: (selectedRowKeys, selectedRows) => {
-    console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows)
+    console.log(
+      `selectedRowKeys: ${selectedRowKeys}`,
+      'selectedRows: ',
+      selectedRows
+    )
   },
   getCheckboxProps: record => ({
     disabled: record.name === 'Disabled User', // Column configuration not to be checked
@@ -26,7 +30,9 @@ class ApisView extends Component {
       {
         dataIndex: 'name',
         title: 'name',
-        render: (text, record) => <Link to={`/apis/${record.id}`}>{record.name}</Link>
+        render: (text, record) => (
+          <Link to={`/apis/${record.id}`}>{record.name}</Link>
+        )
       },
       {
         dataIndex: 'upstream_url',
@@ -59,10 +65,22 @@ class ApisView extends Component {
               okType='danger'
               cancelText='No'
             >
-              <Button icon='delete' type='danger' ghost shape='circle' size='small' />
+              <Button
+                icon='delete'
+                type='danger'
+                ghost
+                shape='circle'
+                size='small'
+              />
             </Popconfirm>
             <Divider type='vertical' />
-            <Button icon='copy' type='primary' ghost shape='circle' size='small' />
+            <Button
+              icon='copy'
+              type='primary'
+              ghost
+              shape='circle'
+              size='small'
+            />
           </div>
         )
       }
@@ -96,9 +114,21 @@ class ApisView extends Component {
   render () {
     const { apis, tableColumns, paginationSetting } = this.state
     return (
-      <div ref={container => (this.container = container)} style={{ background: '#ffffff' }}>
-        <Table rowSelection={rowSelection} dataSource={apis} columns={tableColumns} pagination={paginationSetting} />
-      </div>
+      <Card
+        title='API LIST'
+        extra={
+          <Button type='primary' icon='plus'>
+            ADD NEW API
+          </Button>
+        }
+      >
+        <Table
+          rowSelection={rowSelection}
+          dataSource={apis}
+          columns={tableColumns}
+          pagination={paginationSetting}
+        />
+      </Card>
     )
   }
 }

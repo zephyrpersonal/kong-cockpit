@@ -19,11 +19,7 @@ const CardIconTitle = ({ icon, title }) => (
 )
 
 const InfoCard = ({ title, children, ...rest }) => (
-  <Card
-    title={<CardIconTitle icon='info-circle-o' title={title} />}
-    bordered={false}
-    {...rest}
-  >
+  <Card title={<CardIconTitle icon='info-circle-o' title={title} />} {...rest}>
     {children}
   </Card>
 )
@@ -106,7 +102,6 @@ class DashBoard extends PureComponent {
           <Col span={24}>
             <Card
               title={<CardIconTitle icon='global' title='Connections' />}
-              bordered={false}
               extra={`total request: ${status.server.total_requests}`}
             >
               <Row style={{ textAlign: 'center' }}>
@@ -127,9 +122,7 @@ class DashBoard extends PureComponent {
             <NodeInfoCard info={info} />
           </Col>
           <Col span={8}>
-            <Card title='Card title' bordered={false}>
-              Card content
-            </Card>
+            <Card title='Card title'>Card content</Card>
           </Col>
           <Col span={8}>
             <DatabaseInfoCard info={info} status={status} />
@@ -137,10 +130,7 @@ class DashBoard extends PureComponent {
         </Row>
         <Row gutter={16} style={rowStyle}>
           <Col span={24}>
-            <Card
-              title={<CardIconTitle icon='usb' title='Plugins' />}
-              bordered={false}
-            >
+            <Card title={<CardIconTitle icon='usb' title='Plugins' />}>
               {Object.keys(info.plugins.available_on_server).map(plugin => (
                 <Tag
                   key={plugin}

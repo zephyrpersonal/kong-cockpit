@@ -67,7 +67,7 @@ class App extends Component {
             }}
           >
             <div className='logo' />
-            <Menu theme='dark' mode='inline'>
+            <Menu theme='dark' mode='inline' defaultOpenKeys={[Menus[0].name]}>
               {Menus.map(menu => (
                 <Menu.Item key={menu.name}>
                   <NavLink to={menu.path}>
